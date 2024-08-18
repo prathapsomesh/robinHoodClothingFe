@@ -1,6 +1,6 @@
 export const labels = {
   navbar: {
-    title: 'Robin Hood Clothing',
+    title: 'Robinhood Clothing',
     links: {
       products: 'PRODUCTS',
       vision: 'VISION',
