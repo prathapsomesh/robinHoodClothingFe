@@ -6,15 +6,10 @@ import {
   Col,
   Container,
   Form,
+  Image,
   Row,
   Spinner,
 } from 'react-bootstrap';
-import {
-  faEnvelope,
-  faPhoneAlt,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import emailjs from 'emailjs-com';
 import ErrorOrSuccessModal from './shared/ErrorOrSuccessModal';
 
@@ -97,70 +92,64 @@ const ContactUs = () => {
   };
   return (
     <>
-      <div className="mt-4" id="contact">
-        <Container fluid className="p-4 whiteBackground">
-          <h2 className=" pt-4 orange ">CONTACT US</h2>
-
-          <Row className="contactRow">
-            <Col md={8} className=" py-2 ">
-              <Form onSubmit={contactNow}>
-                <Container fluid>
+      <Container className="p-4 d-flex justify-content-center">
+        <Col md={10}>
+          <Row>
+            <h2 className="pt-2 mx-2 orange ">CONTACT US</h2>
+            <Form onSubmit={contactNow}>
+              <Container>
+                <Col md={12}>
                   <Row>
-                    <Col md={12}>
-                      <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control
-                          type="text"
-                          placeholder="Enter Name"
-                          name="from_name"
-                          onChange={(e) => setUserName(e.target.value)}
-                        />
-                      </Form.Group>
-                    </Col>
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Name</Form.Label>
+                      <Form.Control
+                        type="text"
+                        placeholder="Enter Name"
+                        name="from_name"
+                        onChange={(e) => setUserName(e.target.value)}
+                      />
+                    </Form.Group>
                   </Row>
                   <Row className="mt-3">
-                    <Col md={12}>
-                      <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                          type="email"
-                          placeholder="Enter email"
-                          name="usr_email"
-                          onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <Form.Text className="text-muted">
-                          We&#39;ll never share your email with anyone else.
-                        </Form.Text>
-                      </Form.Group>
-                    </Col>
+                    <Form.Group controlId="formBasicEmail">
+                      <Form.Label>Email address</Form.Label>
+                      <Form.Control
+                        type="email"
+                        placeholder="Enter email"
+                        name="usr_email"
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
+                      <Form.Text className="text-muted">
+                        We&#39;ll never share your email with anyone else.
+                      </Form.Text>
+                    </Form.Group>
                   </Row>
                   <Row className="mt-3">
-                    <Col md={6}>
-                      <Form.Group controlId="formPhoneNumber">
-                        <Form.Label>Phone</Form.Label>
-                        <Form.Control
-                          type="number"
-                          placeholder="Enter Phone number"
-                          name="contact_number"
-                          length={10}
-                          onChange={(e) => setPhoneNumber(e.target.value)}
-                        />
-                      </Form.Group>
-                    </Col>
+                    <Form.Group controlId="formPhoneNumber">
+                      <Form.Label>Phone</Form.Label>
+                      <Form.Control
+                        type="number"
+                        placeholder="Enter Phone number"
+                        name="contact_number"
+                        length={10}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                      />
+                    </Form.Group>
                   </Row>
                   <Row className="mt-3">
-                    <Col md={12}>
-                      <Form.Group controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Message</Form.Label>
-                        <Form.Control
-                          as="textarea"
-                          placeholder="Message"
-                          name="message"
-                          rows={2}
-                          onChange={(e) => setMessage(e.target.value)}
-                        />
-                      </Form.Group>
-                    </Col>
+                    <Form.Group
+                      controlId="exampleForm.ControlTextarea1"
+                      className="w-100"
+                    >
+                      <Form.Label>Message</Form.Label>
+                      <Form.Control
+                        as="textarea"
+                        placeholder="Message"
+                        name="message"
+                        rows={2}
+                        onChange={(e) => setMessage(e.target.value)}
+                      />
+                    </Form.Group>
                   </Row>
                   <Button
                     variant="outline-dark"
@@ -189,114 +178,21 @@ const ContactUs = () => {
                       {success}
                     </Alert>
                   ) : null}
-                </Container>
-                {errorModal.toShow ? (
-                  <ErrorOrSuccessModal
-                    handleClose={closeErrorModal}
-                    open={errorModal.toShow}
-                    type={'error'}
-                    heading="Required"
-                    body={errorModal.message}
-                  />
-                ) : null}
-              </Form>
-            </Col>
-            <Col md={4} className=" py-2 mt-2">
-              <Card className="p-3">
-                <Row className="my-2">
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div
-                      // className="contactUsSpan"
-                      style={{
-                        width: '30px',
-                        height: '30px',
-                        marginRight: '12px',
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        id="verified"
-                        icon={faUser}
-                        size={'sm'}
-                        className="contactIcons"
-                      />
-                    </div>
-                    <h5 className="green">ROBINHOOD CLOTHING</h5>
-                  </div>
-                </Row>
-                <Row className="my-2">
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div
-                      // className="contactUsSpan"
-                      style={{
-                        width: '30px',
-                        height: '30px',
-                        marginRight: '12px',
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        id="verified"
-                        icon={faPhoneAlt}
-                        size={'sm'}
-                        className="contactIcons"
-                      />
-                    </div>
-                    <h5 className="green">+91 6366001337</h5>
-                  </div>
-                </Row>
-                <Row className="my-2">
-                  <div
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'row',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <div
-                      // className="contactUsSpan"
-                      style={{
-                        width: '30px',
-                        height: '30px',
-                        marginRight: '12px',
-                      }}
-                    >
-                      <FontAwesomeIcon
-                        id="verified"
-                        icon={faEnvelope}
-                        size={'sm'}
-                        className="contactIcons"
-                      />
-                    </div>
-                    <h5 className="green">contact@robinhoodclothing.in</h5>
-                  </div>
-                </Row>
-                {/* <Row>
-                  <a
-                    href="https://www.google.com/maps/place/NEW+RAJ+TECHNOLOGY/@12.3622147,76.5753674,15z/data=!4m6!3m5!1s0x3baf7bf5d99f8691:0xc05dc7db41185783!8m2!3d12.3622147!4d76.5753674!16s%2Fg%2F11l746sqf1?entry=ttu"
-                    target="_blank"
-                    rel="noreferrer"
-                    variant="outline-dark"
-                    className="mt-2"
-                  >
-                    <Button variant="outline-dark">Get Directions</Button>
-                  </a>
-                </Row> */}
-              </Card>
-            </Col>
+                </Col>
+              </Container>
+              {errorModal.toShow ? (
+                <ErrorOrSuccessModal
+                  handleClose={closeErrorModal}
+                  open={errorModal.toShow}
+                  type={'error'}
+                  heading="Required"
+                  body={errorModal.message}
+                />
+              ) : null}
+            </Form>
           </Row>
-        </Container>
-      </div>
+        </Col>
+      </Container>
     </>
   );
 };

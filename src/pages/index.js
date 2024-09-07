@@ -1,8 +1,8 @@
-import ContactUs from '@/components/contact';
+import Home from '@/components/home';
 import React from 'react';
 
 const home = () => {
-  return <ContactUs />;
+  return <Home />;
 };
 
 export default home;

@@ -10,13 +10,13 @@ const NavbarTop = () => {
       <Navbar
         expand="lg"
         className="bg-body-tertiary"
-        bg="dark"
-        data-bs-theme="dark"
+        bg="light"
+        data-bs-theme="light"
       >
         <Container fluid>
           <Navbar.Brand href="/">
             <Image
-              src="/vercel.svg"
+              src="/headlogo.svg"
               width={55}
               height={55}
               alt="Picture of the author"
