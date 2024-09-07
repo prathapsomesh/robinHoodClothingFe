@@ -16,6 +16,7 @@ const Bottom = () => {
         className="text-center"
         style={{
           marginBottom: 0,
+          color: '#000',
         }}
       >
         <strong>Robinhood clothing © 2024. All Rights Reserved.</strong>
