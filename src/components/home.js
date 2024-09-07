@@ -14,7 +14,7 @@ const Home = () => {
       <Row>
         <Col
           md={3}
-          className="d-flex justify-content-center align-items-center"
+          className="d-flex justify-content-center align-items-center p-3"
         >
           <Image
             src="/whiteshirt.jpg"
@@ -41,7 +41,7 @@ const Home = () => {
                     className="pt-2 pb-2 orange"
                     style={{ color: '#fff', textAlign: 'center' }}
                   >
-                    ROBINHOOD WHITE SHIRT
+                    ROBINHOOD WHITE SHIRTS
                   </h4>
 
                   <Image
